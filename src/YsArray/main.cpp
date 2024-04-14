@@ -1,5 +1,11 @@
-#include <iostream>
+#include "YsArray.h"
 
 int main() {
-    std::cout << "code tools" << std::endl; 
+    printf("YsArray\n");
+
+    YsArray arr = creatYsArrayTest();
+    arr.arrayLength = 6; 
+
+    printf("arrayLength = %d\n", arr.arrayLength);
+
 }
