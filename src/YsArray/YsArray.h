@@ -5,7 +5,7 @@
 
 typedef struct YsArray YsArray;
 
-YsArray* creatYsArray();
+YsArray* creatYsArray(int arrLength);
 
 
 #endif // _YSARRAY_H_

@@ -3,7 +3,7 @@
 int main() {
     printf("YsArray\n");
 
-    YsArray* arr = creatYsArray();
+    YsArray* arr = creatYsArray(10);
 
     printf("arrayLength = %d\n");
 
