@@ -3,9 +3,8 @@
 int main() {
     printf("YsArray\n");
 
-    YsArray arr = creatYsArrayTest();
-    arr.arrayLength = 6; 
+    YsArray* arr = creatYsArray();
 
-    printf("arrayLength = %d\n", arr.arrayLength);
+    printf("arrayLength = %d\n");
 
 }

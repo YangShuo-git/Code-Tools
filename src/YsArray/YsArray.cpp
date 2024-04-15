@@ -1,15 +1,12 @@
 #include "YsArray.h"
 #include <stdlib.h>
 
-YsArray creatYsArrayTest() 
-{
-    YsArray newArray;
-    newArray.arrayLength = 10;
-    newArray.dataNum = 3;
-    newArray.data = NULL;
+struct YsArray{
+    size_t arrayLength;  // 数组的长度
+    int* data;           // 数据的地址
 
-    return newArray;
-}
+    size_t dataNum;      // 数据的实际数量
+};
 
 YsArray* creatYsArray() 
 {
