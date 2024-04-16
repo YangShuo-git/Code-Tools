@@ -7,5 +7,6 @@ typedef struct YsArray YsArray;
 
 YsArray* creatYsArray(int arrLength);
 
+bool ysArrayPushback(YsArray* arr, int data);
 
 #endif // _YSARRAY_H_

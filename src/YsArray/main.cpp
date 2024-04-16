@@ -5,6 +5,10 @@ int main() {
 
     YsArray* arr = creatYsArray(10);
 
-    printf("arrayLength = %d\n");
+    for (size_t i = 0; i < 10; i++)
+    {
+        ysArrayPushback(arr, i*10);
+    }
 
+    printf("end\n");
 }

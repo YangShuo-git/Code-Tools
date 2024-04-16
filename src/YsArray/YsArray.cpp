@@ -19,7 +19,7 @@ YsArray* creatYsArray(int arrLength)
     
     newArray->arrayLength = arrLength;
     newArray->dataNum = 0;
-    // 为arrLength长的数组分配内存
+    // 给数组分配内存，arrLength个int大小
     newArray->data = (int*)malloc(sizeof(int)*arrLength); 
     if (newArray->data == NULL)
     {
@@ -29,4 +29,22 @@ YsArray* creatYsArray(int arrLength)
     memset(newArray->data, 0, sizeof(int)*arrLength);
 
     return newArray;
+}
+
+bool ysArrayPushback(YsArray* arr, int data)
+{
+    if (arr == NULL)
+    {
+        return false;
+    }
+
+    // 扩容判断
+    if (arr->dataNum >= arr->arrayLength)
+    {
+        
+    }
+    
+    // 将数据存放YsArray中
+    arr->data[arr->dataNum] = data;
+    arr->dataNum++;
 }
