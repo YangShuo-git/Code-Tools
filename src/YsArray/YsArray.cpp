@@ -38,10 +38,24 @@ bool ysArrayPushback(YsArray* arr, int data)
         return false;
     }
 
-    // 扩容判断
+    // 扩容操作
     if (arr->dataNum >= arr->arrayLength)
     {
-        
+        // 1、分配新的内存
+        size_t newArrayLength = arr->arrayLength * 1.5;
+        int* newData = (int*)malloc(newArrayLength * sizeof(int));
+        if (newData == NULL)
+        {
+            return false;
+        }
+
+        // 2、将数组指向的旧数据拷贝到新的内存里面去，并释放旧的内存
+        memcpy(newData, arr->data, arr->dataNum * sizeof(int));
+        free(arr->data);
+
+        // 3、数组指针指向新的地址，并更新数组长度
+        arr->data = newData;
+        arr->arrayLength = newArrayLength;
     }
     
     // 将数据存放YsArray中
