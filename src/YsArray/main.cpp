@@ -10,5 +10,11 @@ int main() {
         ysArrayPushback(arr, i);
     }
 
+    ysArrayPrint(arr);
+
+    ysArrayPop(arr);
+    ysArrayPop(arr);
+    ysArrayPrint(arr);
+
     printf("end\n");
 }

@@ -62,3 +62,31 @@ bool ysArrayPushback(YsArray* arr, int data)
     arr->data[arr->dataNum] = data;
     arr->dataNum++;
 }
+
+// 数组元素的删除只需数据量减1即可，内存还在；
+// 链表元素的删除需要把内存释放；
+bool ysArrayPop(YsArray* arr)
+{
+    if (arr == NULL)
+    {
+        return false;
+    }
+    if (arr->dataNum != 0)
+    {
+        arr->dataNum--;
+    }
+}
+
+void ysArrayPrint(YsArray* arr)
+{
+    if (arr == NULL)
+    {
+        return;
+    }
+
+    for (int i = 0; i < arr->dataNum; i++)
+    {
+        printf("%d ", arr->data[i]);
+    }
+    printf("\n");    
+}
