@@ -16,5 +16,11 @@ int main() {
     ysArrayPop(arr);
     ysArrayPrint(arr);
 
+    ysArrayInsert(arr, 100, 4);
+    ysArrayPrint(arr);
+
+    ysArrayErase(arr, 5);
+    ysArrayPrint(arr);
+
     printf("end\n");
 }
