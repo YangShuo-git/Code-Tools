@@ -22,5 +22,9 @@ int main() {
     ysArrayErase(arr, 5);
     ysArrayPrint(arr);
 
+    int pos0;
+    ysArrayAt(arr, 0, pos0);
+    printf("pos[0]= %d\n", pos0);
+
     printf("end\n");
 }

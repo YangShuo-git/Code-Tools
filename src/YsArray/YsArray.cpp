@@ -33,12 +33,9 @@ YsArray* creatYsArray(int arrLength)
 
 bool ysArrayPushback(YsArray* arr, int data)
 {
-    if (arr == NULL)
-    {
-        return false;
-    }
+    if (arr == NULL) return false;
 
-    // 是否需要扩容
+    // 实际的数据量大于等于数组长度，就需要扩容
     if (arr->dataNum >= arr->arrayLength)
     {
         // 1、分配新的内存
@@ -67,10 +64,8 @@ bool ysArrayPushback(YsArray* arr, int data)
 // 链表元素的删除需要把内存释放；
 bool ysArrayPop(YsArray* arr)
 {
-    if (arr == NULL)
-    {
-        return false;
-    }
+    if (arr == NULL) return false;
+
     if (arr->dataNum != 0)
     {
         arr->dataNum--;
@@ -79,10 +74,7 @@ bool ysArrayPop(YsArray* arr)
 
 void ysArrayPrint(YsArray* arr)
 {
-    if (arr == NULL)
-    {
-        return;
-    }
+    if (arr == NULL) return;
 
     for (int i = 0; i < arr->dataNum; i++)
     {
@@ -93,15 +85,8 @@ void ysArrayPrint(YsArray* arr)
 
 bool ysArrayInsert(YsArray* arr, int data, int pos)
 {
-    if (arr == NULL)
-    {
-        return false;
-    }
-
-    if (pos < 0 || pos > arr->arrayLength)
-    {
-        return false;
-    }
+    if (arr == NULL) return false;
+    if (pos < 0 || pos > arr->arrayLength-1) return false;
 
     if (pos == arr->arrayLength)
     {
@@ -142,15 +127,8 @@ bool ysArrayInsert(YsArray* arr, int data, int pos)
 
 bool ysArrayErase(YsArray* arr, int pos)
 {
-    if (arr == NULL)
-    {
-        return false;
-    }
-
-    if (pos < 0 || pos > arr->arrayLength-1)
-    {
-        return false;
-    }
+    if (arr == NULL) return false;
+    if (pos < 0 || pos > arr->arrayLength-1) return false;
 
     for (int i = pos; i < arr->dataNum-1; i++)
     {
@@ -158,6 +136,27 @@ bool ysArrayErase(YsArray* arr, int pos)
     }
     
     arr->dataNum--;
+
+    return true;
+}
+
+// 不采取以下写法的原因：如果存放的数据就是-1呢？
+int ysArrayAt(YsArray* arr, int pos)
+{
+    if (arr == NULL) return -1;
+    if (pos < 0 || pos > arr->arrayLength-1) return -1;
+
+    return arr->data[pos];
+}
+
+// 遇到返回值是数值型的情况，可以用形参接收
+// 比如这里的int* data
+bool ysArrayAt(YsArray* arr, int pos, int& data)
+{
+    if (arr == NULL) return false;
+    if (pos < 0 || pos > arr->arrayLength-1) return false;
+    
+    data = arr->data[pos];
 
     return true;
 }

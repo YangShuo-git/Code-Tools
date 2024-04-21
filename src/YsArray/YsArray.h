@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
+#define  YSARRAY_OUT  // 只是参数说明，没有实际意义
+
 typedef struct YsArray YsArray;
 
 // 创建动态数组
@@ -30,5 +32,8 @@ bool ysArrayInsert(YsArray* arr, int data, int pos);
 
 // 删除数据
 bool ysArrayErase(YsArray* arr, int pos);
+
+// 返回指定位置的元素
+bool ysArrayAt(YsArray* arr, int pos, YSARRAY_OUT int& data);
 
 #endif // _YSARRAY_H_
